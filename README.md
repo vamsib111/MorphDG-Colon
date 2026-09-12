@@ -45,19 +45,6 @@ LC25000 is not treated as a full nine-class external validation dataset.
 
 The primary reported model is the predefined **seed-42 MorphDG-Colon V2 checkpoint**.
 
-### Repository Structure
-MorphDG-Colon/
-├── README.md
-├── LICENSE
-├── CITATION.cff
-├── requirements.txt
-├── .gitignore
-│
-├── model/
-├── inference/
-├── metadata/
-└── examples/
-
 SHA256:
 
 ```text
