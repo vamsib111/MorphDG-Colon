@@ -1,0 +1,129 @@
+{
+  "confirmation": {
+    "all_11_confirmatory_parity_passed": true,
+    "confirmatory_cohort_sha256": "34e62aab3d7a2b990df76d4c8e9e84b5da276c7faefd5e0a0020a90ef2cd5ba6",
+    "confirmatory_members": 900,
+    "confirmatory_members_per_class": 100,
+    "discovery_excluded_from_confirmation": true,
+    "discovery_members": 27,
+    "selection_method": "SHA256(filename) ascending within class after discovery exclusion",
+    "tolerances": {
+      "Brightness": 1e-10,
+      "Contrast": 1e-10,
+      "Edge_Density": 1e-12,
+      "GLCM_ASM": 1e-10,
+      "GLCM_Contrast": 1e-07,
+      "GLCM_Correlation": 1e-10,
+      "GLCM_Dissimilarity": 1e-10,
+      "GLCM_Energy": 1e-10,
+      "GLCM_Homogeneity": 1e-10,
+      "Texture_Entropy_max_float32_ULP": 1.0,
+      "Tissue_Occupancy": 1e-12
+    }
+  },
+  "features": {
+    "Brightness": {
+      "formula": "mean(gray.astype(float64))"
+    },
+    "Contrast": {
+      "formula": "std(gray.astype(float64),ddof=0)"
+    },
+    "Edge_Density": {
+      "blur": "cv2.GaussianBlur(gray,(3,3),0)",
+      "edge": "cv2.Canny(blurred,50,150,apertureSize=3,L2gradient=False)",
+      "formula": "mean(edge_map > 0)"
+    },
+    "GLCM": {
+      "aggregation": "mean(graycoprops property across four directions)",
+      "angles_radians": [
+        0.0,
+        "pi/4",
+        "pi/2",
+        "3*pi/4"
+      ],
+      "distances": [
+        1
+      ],
+      "levels": 256,
+      "normed": true,
+      "preprocessing": "cv2.resize(gray,(128,128),interpolation=cv2.INTER_AREA)",
+      "properties": [
+        "contrast",
+        "correlation",
+        "energy",
+        "homogeneity",
+        "dissimilarity",
+        "ASM"
+      ],
+      "symmetric": true
+    },
+    "Texture_Entropy": {
+      "confirmation_semantics": "NUMERICALLY_AUTHENTICATED_WITHIN_1_FLOAT32_ULP",
+      "formula": "-sum_float32(p_float32 * log2_float32(p_float32))",
+      "histogram_bins": 256,
+      "log_dtype": "float32",
+      "logarithm": "log2",
+      "probability_dtype": "float32",
+      "sum_dtype": "float32",
+      "term_dtype": "float32"
+    },
+    "Tissue_Occupancy": {
+      "formula": "mean(gray <= 220)"
+    }
+  },
+  "historical_all_11_feature_order": [
+    "Tissue_Occupancy",
+    "Edge_Density",
+    "Texture_Entropy",
+    "GLCM_Contrast",
+    "GLCM_Correlation",
+    "GLCM_Energy",
+    "GLCM_Homogeneity",
+    "GLCM_Dissimilarity",
+    "GLCM_ASM",
+    "Brightness",
+    "Contrast"
+  ],
+  "historical_source_claim_prohibited": true,
+  "historical_source_status": "NOT_RECOVERED",
+  "input_contract": {
+    "channel_order": "RGB",
+    "dtype": "uint8",
+    "expected_stage2_internal_patch_shape": [
+      224,
+      224,
+      3
+    ],
+    "shape": "[H,W,3]",
+    "type": "numpy.ndarray"
+  },
+  "scientific_governance": {
+    "ensemble": false,
+    "external_checkpoint_selection": false,
+    "external_domain_refit": false,
+    "external_preprocessing_fit": false,
+    "external_seed_selection": false,
+    "external_threshold_tuning": false,
+    "formula_search_after_r7": false,
+    "parameter_retuning_after_r7": false,
+    "test_time_adaptation": false
+  },
+  "scientific_identity": "RECONSTRUCTED_BY_INTERNAL_PARITY",
+  "shared_grayscale": {
+    "library": "opencv",
+    "operation": "cv2.cvtColor(rgb, cv2.COLOR_RGB2GRAY)"
+  },
+  "stage7_model_morphology_10d_order": [
+    "Tissue_Occupancy",
+    "Edge_Density",
+    "Texture_Entropy",
+    "GLCM_Contrast",
+    "GLCM_Correlation",
+    "GLCM_Energy",
+    "GLCM_Homogeneity",
+    "GLCM_Dissimilarity",
+    "Brightness",
+    "Contrast"
+  ],
+  "version": "V1"
+}
