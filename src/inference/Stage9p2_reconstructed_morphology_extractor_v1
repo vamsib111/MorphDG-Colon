@@ -1,0 +1,355 @@
+"""
+Stage 9-P2 reconstructed morphology extractor V1.
+
+Scientific identity:
+    RECONSTRUCTED_BY_INTERNAL_PARITY
+
+Important:
+    The original historical Stage2 extractor source was not recovered.
+    This module is an operational reconstruction independently confirmed
+    against a 900-specimen disjoint internal cohort.
+
+No training, fitting, threshold selection, domain adaptation, or model
+inference is performed by this module.
+"""
+
+from __future__ import annotations
+
+import numpy as np
+import cv2
+
+try:
+    from skimage.feature import graycomatrix, graycoprops
+except ImportError:
+    from skimage.feature import greycomatrix as graycomatrix
+    from skimage.feature import greycoprops as graycoprops
+
+
+SCIENTIFIC_IDENTITY = "RECONSTRUCTED_BY_INTERNAL_PARITY"
+HISTORICAL_SOURCE_RECOVERED = False
+EXTRACTOR_VERSION = "V1"
+
+HISTORICAL_ALL_11_FEATURE_ORDER = (
+    "Tissue_Occupancy",
+    "Edge_Density",
+    "Texture_Entropy",
+    "GLCM_Contrast",
+    "GLCM_Correlation",
+    "GLCM_Energy",
+    "GLCM_Homogeneity",
+    "GLCM_Dissimilarity",
+    "GLCM_ASM",
+    "Brightness",
+    "Contrast",
+)
+
+STAGE7_MORPHOLOGY_10D_ORDER = (
+    "Tissue_Occupancy",
+    "Edge_Density",
+    "Texture_Entropy",
+    "GLCM_Contrast",
+    "GLCM_Correlation",
+    "GLCM_Energy",
+    "GLCM_Homogeneity",
+    "GLCM_Dissimilarity",
+    "Brightness",
+    "Contrast",
+)
+
+_GLCM_PROPERTIES = (
+    ("GLCM_Contrast", "contrast"),
+    ("GLCM_Correlation", "correlation"),
+    ("GLCM_Energy", "energy"),
+    ("GLCM_Homogeneity", "homogeneity"),
+    ("GLCM_Dissimilarity", "dissimilarity"),
+    ("GLCM_ASM", "ASM"),
+)
+
+
+def _validate_rgb_uint8(rgb: np.ndarray) -> np.ndarray:
+    if not isinstance(rgb, np.ndarray):
+        raise TypeError(
+            "rgb must be a numpy.ndarray"
+        )
+
+    if rgb.ndim != 3 or rgb.shape[2] != 3:
+        raise ValueError(
+            f"rgb must have shape [H,W,3], got {rgb.shape}"
+        )
+
+    if rgb.dtype != np.uint8:
+        raise TypeError(
+            f"rgb dtype must be uint8, got {rgb.dtype}"
+        )
+
+    if rgb.shape[0] < 2 or rgb.shape[1] < 2:
+        raise ValueError(
+            f"rgb spatial dimensions are invalid: {rgb.shape}"
+        )
+
+    return rgb
+
+
+def _texture_entropy_float32(gray: np.ndarray) -> np.float32:
+    counts = np.bincount(
+        gray.ravel(),
+        minlength=256,
+    ).astype(
+        np.float32
+    )
+
+    probabilities = counts[
+        counts > 0
+    ]
+
+    probabilities = (
+        probabilities
+        /
+        np.sum(
+            probabilities,
+            dtype=np.float32,
+        )
+    ).astype(
+        np.float32
+    )
+
+    log_probabilities = np.log2(
+        probabilities
+    ).astype(
+        np.float32
+    )
+
+    terms = (
+        probabilities
+        *
+        log_probabilities
+    ).astype(
+        np.float32
+    )
+
+    entropy = -np.sum(
+        terms,
+        dtype=np.float32,
+    )
+
+    return np.float32(
+        entropy
+    )
+
+
+def extract_all_11(rgb: np.ndarray) -> dict[str, float]:
+    rgb = _validate_rgb_uint8(
+        rgb
+    )
+
+    gray = cv2.cvtColor(
+        rgb,
+        cv2.COLOR_RGB2GRAY,
+    )
+
+    tissue_occupancy = float(
+        np.mean(
+            gray <= 220
+        )
+    )
+
+    blurred = cv2.GaussianBlur(
+        gray,
+        (3, 3),
+        0,
+    )
+
+    edge_map = cv2.Canny(
+        blurred,
+        threshold1=50,
+        threshold2=150,
+        apertureSize=3,
+        L2gradient=False,
+    )
+
+    edge_density = float(
+        np.mean(
+            edge_map > 0
+        )
+    )
+
+    texture_entropy = float(
+        _texture_entropy_float32(
+            gray
+        )
+    )
+
+    glcm_gray = cv2.resize(
+        gray,
+        (128, 128),
+        interpolation=cv2.INTER_AREA,
+    )
+
+    glcm = graycomatrix(
+        glcm_gray,
+        distances=[1],
+        angles=[
+            0.0,
+            np.pi / 4.0,
+            np.pi / 2.0,
+            3.0 * np.pi / 4.0,
+        ],
+        levels=256,
+        symmetric=True,
+        normed=True,
+    )
+
+    glcm_features = {}
+
+    for feature_name, property_name in _GLCM_PROPERTIES:
+        property_values = graycoprops(
+            glcm,
+            property_name,
+        )
+
+        glcm_features[
+            feature_name
+        ] = float(
+            np.mean(
+                property_values
+            )
+        )
+
+    gray64 = gray.astype(
+        np.float64
+    )
+
+    brightness = float(
+        np.mean(
+            gray64
+        )
+    )
+
+    contrast = float(
+        np.std(
+            gray64,
+            ddof=0,
+        )
+    )
+
+    result = {
+        "Tissue_Occupancy":
+            tissue_occupancy,
+
+        "Edge_Density":
+            edge_density,
+
+        "Texture_Entropy":
+            texture_entropy,
+
+        "GLCM_Contrast":
+            glcm_features[
+                "GLCM_Contrast"
+            ],
+
+        "GLCM_Correlation":
+            glcm_features[
+                "GLCM_Correlation"
+            ],
+
+        "GLCM_Energy":
+            glcm_features[
+                "GLCM_Energy"
+            ],
+
+        "GLCM_Homogeneity":
+            glcm_features[
+                "GLCM_Homogeneity"
+            ],
+
+        "GLCM_Dissimilarity":
+            glcm_features[
+                "GLCM_Dissimilarity"
+            ],
+
+        "GLCM_ASM":
+            glcm_features[
+                "GLCM_ASM"
+            ],
+
+        "Brightness":
+            brightness,
+
+        "Contrast":
+            contrast,
+    }
+
+    if tuple(
+        result.keys()
+    ) != HISTORICAL_ALL_11_FEATURE_ORDER:
+        raise RuntimeError(
+            "Historical 11-feature output order changed"
+        )
+
+    if not np.all(
+        np.isfinite(
+            np.asarray(
+                list(
+                    result.values()
+                ),
+                dtype=np.float64,
+            )
+        )
+    ):
+        raise RuntimeError(
+            "Non-finite reconstructed morphology feature encountered"
+        )
+
+    return result
+
+
+def extract_stage7_10_dict(
+    rgb: np.ndarray,
+) -> dict[str, float]:
+    all_features = extract_all_11(
+        rgb
+    )
+
+    return {
+        feature_name:
+            all_features[
+                feature_name
+            ]
+        for feature_name
+        in STAGE7_MORPHOLOGY_10D_ORDER
+    }
+
+
+def extract_stage7_10_array(
+    rgb: np.ndarray,
+) -> np.ndarray:
+    features = extract_stage7_10_dict(
+        rgb
+    )
+
+    output = np.asarray(
+        [
+            features[
+                feature_name
+            ]
+            for feature_name
+            in STAGE7_MORPHOLOGY_10D_ORDER
+        ],
+        dtype=np.float64,
+    )
+
+    if output.shape != (10,):
+        raise RuntimeError(
+            f"Expected Stage7 morphology shape (10,), got {output.shape}"
+        )
+
+    if not np.all(
+        np.isfinite(
+            output
+        )
+    ):
+        raise RuntimeError(
+            "Non-finite Stage7 morphology vector encountered"
+        )
+
+    return output
