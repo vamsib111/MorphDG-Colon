@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+
+message: >
+  If you use MorphDG-Colon in your research, please cite this software
+  repository and the associated manuscript.
+
+title: >
+  MorphDG-Colon: Reliability-Aware Stain-Robust Morphology-Gated
+  Residual Fusion for Colorectal Histopathology Classification
+
+type: software
+
+authors:
+  - given-names: Thohith Kumar
+    family-names: Reddy
+
+  - given-names: Bandi
+    family-names: Vamsi
+
+  - given-names: Lakshmana Kumar
+    family-names: Ramasamy
+
+  - given-names: Ali
+    family-names: Al Bataineh
+
+repository-code: "https://github.com/vamsib111/MorphDG-Colon"
+
+license: Apache-2.0
+
+keywords:
+  - colorectal histopathology
+  - domain generalization
+  - morphology-aware learning
+  - reliability-aware classification
+  - stain robustness
