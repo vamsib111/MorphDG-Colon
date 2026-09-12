@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "model": "MorphDG-Colon V2",
+  "vector_name": "morphology_domain_context",
+  "dimension": 9,
+  "context_order": [
+    "Domain_Projection_1",
+    "Domain_Projection_2",
+    "Soft_Domain_Probability_1",
+    "Soft_Domain_Probability_2",
+    "Soft_Domain_Probability_3",
+    "Soft_Domain_Confidence",
+    "Soft_Domain_Entropy",
+    "Nearest_Centroid_Distance",
+    "Relative_Distance_Margin"
+  ],
+  "context_to_index": {
+    "Domain_Projection_1": 0,
+    "Domain_Projection_2": 1,
+    "Soft_Domain_Probability_1": 2,
+    "Soft_Domain_Probability_2": 3,
+    "Soft_Domain_Probability_3": 4,
+    "Soft_Domain_Confidence": 5,
+    "Soft_Domain_Entropy": 6,
+    "Nearest_Centroid_Distance": 7,
+    "Relative_Distance_Margin": 8
+  },
+  "index_to_context": {
+    "0": "Domain_Projection_1",
+    "1": "Domain_Projection_2",
+    "2": "Soft_Domain_Probability_1",
+    "3": "Soft_Domain_Probability_2",
+    "4": "Soft_Domain_Probability_3",
+    "5": "Soft_Domain_Confidence",
+    "6": "Soft_Domain_Entropy",
+    "7": "Nearest_Centroid_Distance",
+    "8": "Relative_Distance_Margin"
+  },
+  "frozen_mapper": "src/inference/resources/stage7b3_final_label_free_domain_mapper.json",
+  "source_morphology_dimension": 10,
+  "warning": "This 9-dimensional morphology-domain context is frozen. Do not reorder, regenerate, refit, or replace the released mapper when reproducing MorphDG-Colon V2 inference."
+}
