@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "model": "MorphDG-Colon V2",
+  "vector_name": "morphology_features",
+  "dimension": 10,
+  "feature_order": [
+    "Tissue_Occupancy",
+    "Edge_Density",
+    "Texture_Entropy",
+    "GLCM_Contrast",
+    "GLCM_Correlation",
+    "GLCM_Energy",
+    "GLCM_Homogeneity",
+    "GLCM_Dissimilarity",
+    "Brightness",
+    "Contrast"
+  ],
+  "feature_to_index": {
+    "Tissue_Occupancy": 0,
+    "Edge_Density": 1,
+    "Texture_Entropy": 2,
+    "GLCM_Contrast": 3,
+    "GLCM_Correlation": 4,
+    "GLCM_Energy": 5,
+    "GLCM_Homogeneity": 6,
+    "GLCM_Dissimilarity": 7,
+    "Brightness": 8,
+    "Contrast": 9
+  },
+  "index_to_feature": {
+    "0": "Tissue_Occupancy",
+    "1": "Edge_Density",
+    "2": "Texture_Entropy",
+    "3": "GLCM_Contrast",
+    "4": "GLCM_Correlation",
+    "5": "GLCM_Energy",
+    "6": "GLCM_Homogeneity",
+    "7": "GLCM_Dissimilarity",
+    "8": "Brightness",
+    "9": "Contrast"
+  },
+  "frozen_extractor": "src/inference/stage9p2_reconstructed_morphology_extractor_v1.py",
+  "frozen_extractor_spec": "src/inference/resources/stage9p2_reconstructed_morphology_extractor_spec_v1.json",
+  "frozen_scaler": "src/inference/resources/stage7a3_training_only_hybrid_scaler.json",
+  "warning": "This morphology feature order is frozen. Do not reorder, add, remove, independently redefine, or refit these features when reproducing MorphDG-Colon V2 inference."
+}
