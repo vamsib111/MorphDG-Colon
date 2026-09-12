@@ -1,0 +1,29 @@
+MorphDG-Colon
+
+Copyright 2026 Bandi Vamsi
+GitHub: https://github.com/vamsib111
+
+MorphDG-Colon is a research software project accompanying the work:
+
+"MorphDG-Colon: Reliability-Aware Stain-Robust Morphology-Gated
+Residual Fusion for Colorectal Histopathology Classification."
+
+The original MorphDG-Colon source code and documentation distributed
+through this repository are released under the Apache License,
+Version 2.0, unless otherwise stated.
+
+Third-party libraries, pretrained components, datasets, and other
+third-party resources remain subject to their respective licenses,
+copyrights, and terms of use.
+
+The NCT-CRC-HE-100K, CRC-VAL-HE-7K, and LC25000 datasets are not
+redistributed through this repository. Users must obtain these datasets
+from their authorized sources and comply with the corresponding terms
+of access and use.
+
+The Apache License 2.0 does not grant rights to any third-party datasets,
+software, pretrained resources, trademarks, or other materials that may
+be referenced by this project.
+
+See the LICENSE file in this repository for the complete Apache License
+2.0 terms.
