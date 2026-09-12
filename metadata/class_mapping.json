@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "model": "MorphDG-Colon V2",
+  "num_classes": 9,
+  "class_order": [
+    "ADI",
+    "BACK",
+    "DEB",
+    "LYM",
+    "MUC",
+    "MUS",
+    "NORM",
+    "STR",
+    "TUM"
+  ],
+  "class_to_index": {
+    "ADI": 0,
+    "BACK": 1,
+    "DEB": 2,
+    "LYM": 3,
+    "MUC": 4,
+    "MUS": 5,
+    "NORM": 6,
+    "STR": 7,
+    "TUM": 8
+  },
+  "index_to_class": {
+    "0": "ADI",
+    "1": "BACK",
+    "2": "DEB",
+    "3": "LYM",
+    "4": "MUC",
+    "5": "MUS",
+    "6": "NORM",
+    "7": "STR",
+    "8": "TUM"
+  },
+  "class_names": {
+    "ADI": "Adipose tissue",
+    "BACK": "Background",
+    "DEB": "Debris",
+    "LYM": "Lymphocytes",
+    "MUC": "Mucus",
+    "MUS": "Smooth muscle",
+    "NORM": "Normal colon mucosa",
+    "STR": "Cancer-associated stroma",
+    "TUM": "Colorectal adenocarcinoma epithelium"
+  },
+  "warning": "This class order is frozen and must not be changed when interpreting MorphDG-Colon V2 logits or predictions."
+}
