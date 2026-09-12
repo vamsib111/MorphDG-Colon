@@ -1,0 +1,91 @@
+# ============================================================
+# MorphDG-Colon
+# Git ignore rules for the public research repository
+# ============================================================
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables and credentials
+.env
+.env.*
+*.key
+*.pem
+*.token
+secrets.*
+credentials.*
+
+# IDE / editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.cache
+~*
+
+# Local datasets
+data/
+dataset/
+datasets/
+Data/
+Datasets/
+
+# Local experimental outputs
+outputs/
+output/
+runs/
+results/
+Results/
+checkpoints/
+Checkpoints/
+
+# Local training artifacts
+wandb/
+lightning_logs/
+tensorboard/
+
+# Local archives
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+
+# Local notebooks used for development
+notebooks/private/
+scratch/
+
+# Local project backups
+backup/
+backups/
+*_backup/
+*_backups/
+
+# ============================================================
+# IMPORTANT
+# Do not globally ignore .pt or .pth files.
+# The frozen MorphDG-Colon V2 checkpoint is intentionally
+# distributed through the repository.
+# ============================================================
