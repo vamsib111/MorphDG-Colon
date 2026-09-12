@@ -1,0 +1,296 @@
+{
+    "canonical_centroids_10d": [
+        [
+            -0.23489291104839782,
+            -0.0037330749739015526,
+            0.14115472564457077,
+            -0.03885177074210278,
+            0.06612173931161716,
+            0.04000829734636403,
+            -0.08247045686044031,
+            0.03436414907543394,
+            -0.21892333375786902,
+            -0.27279776483829754
+        ],
+        [
+            -0.005182483047618985,
+            -0.00014992933006561428,
+            0.0031124554891785693,
+            -0.0010673452543253684,
+            0.001492751285133458,
+            0.0008596674947945086,
+            -0.0017308198152099345,
+            0.0011368882665718763,
+            -0.004856997797411013,
+            -0.0060938073332810075
+        ],
+        [
+            0.16522246709121272,
+            0.0027762113652611883,
+            -0.09928335633704158,
+            0.02779588440369738,
+            -0.04658513600625695,
+            -0.028090343668864787,
+            0.05781178107979041,
+            -0.02501447613937132,
+            0.15404931978454864,
+            0.19205152982757503
+        ]
+    ],
+    "canonical_centroids_2d": [
+        [
+            -0.45237209767672754,
+            0.09101254441958469
+        ],
+        [
+            -0.009980764072281476,
+            0.0024641560672666197
+        ],
+        [
+            0.3181962098718934,
+            -0.06503299491212432
+        ]
+    ],
+    "centroids_refitted": false,
+    "class_balanced_center": [
+        -0.033681229900374414,
+        -0.037004122258657124,
+        -0.8333472460584415,
+        -0.02883500800225324,
+        0.01872485150287476,
+        2.7817044640052053,
+        1.2943093856717702,
+        -0.032603840991413134,
+        0.035196652283433105,
+        -0.016416854361636955
+    ],
+    "external_data_used": false,
+    "feature_list_changed": false,
+    "hard_domain_formula": "projected = (scaled_morphology - class_balanced_center) @ projection_matrix; hard_domain = argmin_j EuclideanDistance(projected, canonical_centroid_j)",
+    "input_feature_order": [
+        "scaled__Tissue_Occupancy",
+        "scaled__Edge_Density",
+        "scaled__Texture_Entropy",
+        "scaled__GLCM_Contrast",
+        "scaled__GLCM_Correlation",
+        "scaled__GLCM_Energy",
+        "scaled__GLCM_Homogeneity",
+        "scaled__GLCM_Dissimilarity",
+        "scaled__Brightness",
+        "scaled__Contrast"
+    ],
+    "k_reselected": false,
+    "name": "MorphDG-Colon Final Label-Free Morphology Domain Mapper",
+    "projection_matrix": [
+        [
+            0.26961757659013785,
+            -0.011189594462271751,
+            -0.16244919901850446,
+            -0.0035355708827859243,
+            -0.06813350331654416,
+            -0.05120020249368505,
+            0.11498629396441298,
+            0.04729039852098679,
+            0.2451367726720065,
+            0.2959435546160404
+        ],
+        [
+            -0.011189594462271751,
+            0.02240638867286815,
+            0.007347811497630957,
+            0.06839353458862686,
+            -0.008180024729573736,
+            0.009607949159832489,
+            -0.03359049271786497,
+            -0.12494738700993265,
+            -0.001452666941191765,
+            0.012081516189326387
+        ],
+        [
+            -0.16244919901850446,
+            0.007347811497630957,
+            0.09789515005204774,
+            0.004014756613681878,
+            0.040747642809908696,
+            0.03105562852760428,
+            -0.07007697592821766,
+            -0.031889279957703395,
+            -0.1474582830496045,
+            -0.17763829078466878
+        ],
+        [
+            -0.0035355708827859243,
+            0.06839353458862686,
+            0.004014756613681878,
+            0.21231624574454866,
+            -0.03334404053534605,
+            0.02394614388090696,
+            -0.09114238527141326,
+            -0.3831429526636238,
+            0.023910404223922224,
+            0.0718982377178183
+        ],
+        [
+            -0.06813350331654416,
+            -0.008180024729573736,
+            0.040747642809908696,
+            -0.03334404053534605,
+            0.022739868460081136,
+            0.009184471796745313,
+            -0.014600164061974475,
+            0.04974749550788705,
+            -0.06632214588127089,
+            -0.08700876205029642
+        ],
+        [
+            -0.05120020249368505,
+            0.009607949159832489,
+            0.03105562852760428,
+            0.02394614388090696,
+            0.009184471796745313,
+            0.012274889122232291,
+            -0.03166397446994425,
+            -0.05092286936193354,
+            -0.04357714605589129,
+            -0.047890550664616345
+        ],
+        [
+            0.11498629396441298,
+            -0.03359049271786497,
+            -0.07007697592821766,
+            -0.09114238527141326,
+            -0.014600164061974475,
+            -0.03166397446994425,
+            0.08688896021956416,
+            0.18169508412752366,
+            0.09309177159420862,
+            0.09421480381604154
+        ],
+        [
+            0.04729039852098679,
+            -0.12494738700993265,
+            -0.031889279957703395,
+            -0.3831429526636238,
+            0.04974749550788705,
+            -0.05092286936193354,
+            0.18169508412752366,
+            0.6976232768562434,
+            -0.005884245641456739,
+            -0.0846503449695264
+        ],
+        [
+            0.2451367726720065,
+            -0.001452666941191765,
+            -0.1474582830496045,
+            0.023910404223922224,
+            -0.06632214588127089,
+            -0.04357714605589129,
+            0.09309177159420862,
+            -0.005884245641456739,
+            0.22634495049652337,
+            0.27875583702567014
+        ],
+        [
+            0.2959435546160404,
+            0.012081516189326387,
+            -0.17763829078466878,
+            0.0718982377178183,
+            -0.08700876205029642,
+            -0.047890550664616345,
+            0.09421480381604154,
+            -0.0846503449695264,
+            0.27875583702567014,
+            0.35189269378575116
+        ]
+    ],
+    "projection_refitted": false,
+    "residual_coordinate_basis": [
+        [
+            0.5192471247779213,
+            -2.844463467007399e-17
+        ],
+        [
+            -0.021549651270688308,
+            -0.14812832680814317
+        ],
+        [
+            -0.31285526922846824,
+            -0.00409030170404287
+        ],
+        [
+            -0.006809033144474214,
+            -0.46072755812105176
+        ],
+        [
+            -0.13121594721527735,
+            0.07431180025055724
+        ],
+        [
+            -0.09860469138964022,
+            -0.05051736293777159
+        ],
+        [
+            0.22144810915147903,
+            0.19454998116884753
+        ],
+        [
+            0.09107493573741533,
+            0.8302581724600303
+        ],
+        [
+            0.4721003949263078,
+            -0.05887416756904254
+        ],
+        [
+            0.56994741134602,
+            -0.16447687401492633
+        ]
+    ],
+    "residual_dimension": 2,
+    "runtime_requires_class_label": false,
+    "runtime_requires_training_split": false,
+    "scaler_refitted": false,
+    "selected_candidate": "r8_k3",
+    "selected_k": 3,
+    "selected_projection_rank": 8,
+    "soft_domain_formula": "soft_domain_j = softmax_j(-squared_distance_j / (2 * soft_temperature_squared))",
+    "soft_temperature": 0.11906251397153088,
+    "soft_temperature_policy": "Median TRAINING squared distance to the assigned frozen centroid, computed after final r8_k3 selection.",
+    "soft_temperature_squared": 0.014175882233220987,
+    "source_hashes": {
+        "D:\\MorphDG_Colon\\Checkpoints\\stage6g_methods1_11_seed42_consolidation_checkpoint.json": "0a820d8363207b75c0ab975e209eadd5a2a276ec65959860c678bdb80ed47cca",
+        "D:\\MorphDG_Colon\\Checkpoints\\stage7b1r1_class_orthogonal_domain_repair_checkpoint.json": "169756dcd25ea2fd3e6cf0a54a4cd638099051809dd4c92fc64f4582c846a51e",
+        "D:\\MorphDG_Colon\\Checkpoints\\stage7b2r1_repaired_class_domain_safety_and_selection_checkpoint.json": "9fa58d6afd3530fd898f2bb3e0dee0274ed7109e47baa3a52e8f22230b9c347b",
+        "D:\\MorphDG_Colon\\Results\\Stage5_Baselines\\Protocol\\stage5_primary_comparison_registry_12_methods.json": "75c44b3065adef28e8cb4eb04d251a721fb343907296392f6b8bf45f9ca5b267",
+        "D:\\MorphDG_Colon\\Results\\Stage6_DG_Baselines\\Protocol\\stage6g_methods1_11_seed42_consolidation_report.json": "5ac0020d0fe88eccda8015be2c7415adf797765d217a35870622cef6242bc2ff",
+        "D:\\MorphDG_Colon\\Results\\Stage7_MorphologyDomains\\Protocol\\stage7a2_training_only_morphology_feature_freeze_report.json": "a8ff70215a030eb226505b0092001d8dbc70e9d268dbdaa617bb774159d0a856",
+        "D:\\MorphDG_Colon\\Results\\Stage7_MorphologyDomains\\Protocol\\stage7a3_scaled_morphology_registry_100k.csv": "a1d6a7065d0f9191f22f9eb3f9661011d1d9bfb891921bcbbd4d283f6b342f96",
+        "D:\\MorphDG_Colon\\Results\\Stage7_MorphologyDomains\\Protocol\\stage7a3_training_only_hybrid_scaler.json": "5c9397694b11218c11fd212a137fe5f35f63f4f7e585bdf9f885a92be8c18fbf",
+        "D:\\MorphDG_Colon\\Results\\Stage7_MorphologyDomains\\Protocol\\stage7a3_training_only_scaler_freeze_report.json": "1d90e61d1e4bccb291095e4cb7200a5f1d46a7786fe5ce1fdcdaa6e75d4880c4",
+        "D:\\MorphDG_Colon\\Results\\Stage7_MorphologyDomains\\Protocol\\stage7b1r1_class_orthogonal_candidate_assignments_train70k.csv": "a1517e0f5c870addff0734f198f464d50f6b27d451ca30a5ab37d64511a66dc2",
+        "D:\\MorphDG_Colon\\Results\\Stage7_MorphologyDomains\\Protocol\\stage7b1r1_class_orthogonal_candidate_models.json": "b2da9db5fb75f8ed75e54c26359f588821c2fe74edfe3ea31641d7a4b4bd0434",
+        "D:\\MorphDG_Colon\\Results\\Stage7_MorphologyDomains\\Protocol\\stage7b1r1_class_orthogonal_domain_repair_report.json": "9bba83930c0488be66f7443cab9a3c51bb1312ac20102ee89c4771651663b80c",
+        "D:\\MorphDG_Colon\\Results\\Stage7_MorphologyDomains\\Protocol\\stage7b2r1_repaired_candidate_selection_summary.csv": "faed6979376616dfd9e907d310fffef06dd990bb53b3a4fd23ab4315ca75fb67",
+        "D:\\MorphDG_Colon\\Results\\Stage7_MorphologyDomains\\Protocol\\stage7b2r1_repaired_class_domain_detail_train70k.csv": "f3b3e67552232e372f036c83a043e5b2a63788236577d1015a8bf4f857b431e4",
+        "D:\\MorphDG_Colon\\Results\\Stage7_MorphologyDomains\\Protocol\\stage7b2r1_repaired_class_domain_safety_and_selection_report.json": "fb00d89c8a94392d5b74674225b32c9ec3dba2a3c1228a20a919ca585b1fe574"
+    },
+    "stage": "7B-3",
+    "status": "FROZEN",
+    "temperature_fit_rows": 70000,
+    "test_labels_used": false,
+    "test_rows_used_for_temperature": 0,
+    "training_assignment_reproduction": {
+        "domain_sizes": [
+            11803,
+            40153,
+            18044
+        ],
+        "exact": true,
+        "rows": 70000,
+        "runtime_assignment_sha256": "88be41350e4af067db1b5699c860d5a5dd3953fd8c48c9ae867ad9e4145f6803",
+        "source_assignment_sha256": "88be41350e4af067db1b5699c860d5a5dd3953fd8c48c9ae867ad9e4145f6803"
+    },
+    "validation_labels_used": false,
+    "validation_macro_f1_used": false,
+    "validation_rows_used_for_temperature": 0
+}

@@ -1,0 +1,295 @@
+{
+  "authorization": {
+    "crc_external_inference": false,
+    "crc_image_byte_access": false,
+    "crc_image_decoding": false,
+    "crc_metadata_access": true,
+    "crc_morphology_extraction": false,
+    "external_metrics": false,
+    "next_authorized_step": "STAGE9_P3_PRIMARY_EVALUATOR_RECONSTRUCTION_INTERNAL_PARITY_AND_SYNTHETIC_PREFLIGHT"
+  },
+  "created_utc": "2026-08-15T05:12:15.633588+00:00",
+  "external_dataset": {
+    "class_counts": {
+      "ADI": 1338,
+      "BACK": 847,
+      "DEB": 339,
+      "LYM": 634,
+      "MUC": 1035,
+      "MUS": 592,
+      "NORM": 741,
+      "STR": 421,
+      "TUM": 1233
+    },
+    "class_mapping": {
+      "ADI": 0,
+      "BACK": 1,
+      "DEB": 2,
+      "LYM": 3,
+      "MUC": 4,
+      "MUS": 5,
+      "NORM": 6,
+      "STR": 7,
+      "TUM": 8
+    },
+    "image_bytes_hashed_during_p2_r9": false,
+    "image_bytes_read_during_p2_r9": false,
+    "image_extension": ".tif",
+    "images_decoded_during_p2_r9": false,
+    "metadata_inventory_definition": "SHA256 over newline-separated metadata rows class_index|class|relative_path|size_bytes sorted by absolute filepath lowercase",
+    "metadata_inventory_sha256": "4198e633e3ea8d44f8130e9cac56712b8d30e675e7a051ffa1554fec21e13d53",
+    "name": "CRC-VAL-HE-7K",
+    "role": "PRIMARY_EXTERNAL_VALIDATION",
+    "root": "D:\\MorphDG_Colon\\Datasets\\CRC-VAL-HE-7K",
+    "specimen_count": 7180
+  },
+  "image_transform_contract": {
+    "antialias": true,
+    "batch_size": 32,
+    "decode_mode": "RGB",
+    "interpolation": "BILINEAR",
+    "normalization_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "normalization_std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "num_workers": 0,
+    "resize": [
+      224,
+      224
+    ],
+    "shuffle": false,
+    "tensor_conversion": "ToTensor"
+  },
+  "input_binding": {
+    "columns": [
+      "external_index",
+      "class",
+      "class_index",
+      "filepath",
+      "filename",
+      "extension",
+      "size_bytes"
+    ],
+    "duplicate_filenames": 0,
+    "filename": "stage9p2_crcval_input_binding_v1.csv",
+    "label_source": "PREDEFINED_EXTERNAL_CLASS_DIRECTORY",
+    "ordering": "class_index ASC, filepath ASC",
+    "rows": 7180,
+    "sha256": "45994c1be7deca92b67aab71db4ba8a80eba7b64a2d13a01b4957127db0e846c",
+    "zero_byte_files": 0
+  },
+  "morphdg_external_input_contract": {
+    "GLCM_ASM_role": "HISTORICAL_11D_FEATURE_ONLY_EXCLUDED_FROM_STAGE7_10D_MODEL_INPUT",
+    "continuous_domain_context_9d_order": [
+      "domain_projected_0",
+      "domain_projected_1",
+      "soft_domain_0",
+      "soft_domain_1",
+      "soft_domain_2",
+      "soft_domain_confidence",
+      "soft_domain_entropy",
+      "nearest_centroid_distance",
+      "relative_distance_margin"
+    ],
+    "continuous_domain_context_semantics": {
+      "centroids": [
+        [
+          -0.45237209767672726,
+          0.09101254441958467
+        ],
+        [
+          -0.009980764072281482,
+          0.002464156067266632
+        ],
+        [
+          0.31819620987189334,
+          -0.06503299491212433
+        ]
+      ],
+      "entropy": "-sum(p*ln(p))/ln(3)",
+      "external_labels_required": false,
+      "relative_distance_margin": "1 - nearest_distance / second_nearest_distance",
+      "soft_beta": 35.27117337559835,
+      "soft_domain_convention": "NO_CLIP",
+      "soft_kernel": "SQUARED_EUCLIDEAN"
+    },
+    "domain_mapper": {
+      "external_K_reselection": false,
+      "external_beta_refit": false,
+      "external_centroid_refit": false,
+      "external_projection_refit": false,
+      "path": "D:\\MorphDG_Colon\\Results\\Stage7_MorphologyDomains\\Protocol\\stage7b3_final_label_free_domain_mapper.json",
+      "sha256": "28164a117ea695b1d25a0683756a5682d544e91fa5d99c0a79ff1a647e2acca1"
+    },
+    "extractor": {
+      "external_execution_in_stage9_p2_r9": false,
+      "historical_source_recovered": false,
+      "identity": "RECONSTRUCTED_BY_INTERNAL_PARITY",
+      "r7_confirmatory_cohort_sha256": "34e62aab3d7a2b990df76d4c8e9e84b5da276c7faefd5e0a0020a90ef2cd5ba6",
+      "source_path": "D:\\MorphDG_Colon\\Results\\Stage9_ExternalValidation\\Protocol\\Stage9P2_Reconstructed_Morphology_Extractor_V1\\stage9p2_reconstructed_morphology_extractor_v1.py",
+      "source_sha256": "c340fb15c135c9bb6ffe0776d50556a5688f14b3ae051ecfd8e13060eb04188e",
+      "specification_canonical_sha256": "ce42aa105622f16cf739742cda961170832dfc758aa3c0441009326801d5e5ac",
+      "specification_file_sha256": "5a56fab9a9b43a327ad355ac066d8347d3c1f71fb0720b7e2cb028d293d93b72",
+      "specification_path": "D:\\MorphDG_Colon\\Results\\Stage9_ExternalValidation\\Protocol\\Stage9P2_Reconstructed_Morphology_Extractor_V1\\stage9p2_reconstructed_morphology_extractor_spec_v1.json"
+    },
+    "morphology_10d_order": [
+      "Tissue_Occupancy",
+      "Edge_Density",
+      "Texture_Entropy",
+      "GLCM_Contrast",
+      "GLCM_Correlation",
+      "GLCM_Energy",
+      "GLCM_Homogeneity",
+      "GLCM_Dissimilarity",
+      "Brightness",
+      "Contrast"
+    ],
+    "scaler": {
+      "external_refit": false,
+      "fit_scope": "SOURCE_TRAINING_70K_ONLY",
+      "path": "D:\\MorphDG_Colon\\Results\\Stage7_MorphologyDomains\\Protocol\\stage7a3_training_only_hybrid_scaler.json",
+      "sha256": "5c9397694b11218c11fd212a137fe5f35f63f4f7e585bdf9f885a92be8c18fbf"
+    },
+    "stage9_p3_required_internal_parity_before_external_decode": {
+      "external_image_decoding_before_p3_pass": false,
+      "load_primary_models": true,
+      "reconstruct_9d_context_semantics": true,
+      "reconstruct_domain_projection_semantics": true,
+      "reconstruct_scaler_semantics": true,
+      "reproduce_frozen_validation_binding": true,
+      "strict_checkpoint_loading": true,
+      "synthetic_forward_shape": "[batch,9]"
+    }
+  },
+  "primary_endpoints": {
+    "domain_robustness": {
+      "domain_count": 3,
+      "domain_f1_sd": "population standard deviation of the three frozen-domain Macro-F1 values; ddof=0",
+      "domain_source": "FROZEN_STAGE7B3_LABEL_FREE_MORPHOLOGY_DOMAIN_MAPPER",
+      "external_labels_used_to_construct_domains": false,
+      "hard_domain_used_as_MorphDG_model_input": false,
+      "same_domain_assignments_used_for_both_primary_models": true,
+      "worst_domain_macro_f1": "minimum of the three frozen-domain Macro-F1 values"
+    },
+    "generalization_gap": {
+      "formula": "source_validation_macro_f1 - crc_external_macro_f1",
+      "internal_heldout_used_as_source_anchor": false,
+      "positive_value_interpretation": "EXTERNAL_PERFORMANCE_DEGRADATION",
+      "source_anchor": "FROZEN_SOURCE_VALIDATION_MACRO_F1"
+    },
+    "primary": {
+      "average": "macro",
+      "classes": [
+        "ADI",
+        "BACK",
+        "DEB",
+        "LYM",
+        "MUC",
+        "MUS",
+        "NORM",
+        "STR",
+        "TUM"
+      ],
+      "direction": "HIGHER_BETTER",
+      "name": "CRC-VAL-HE-7K Macro-F1",
+      "zero_division": 0
+    },
+    "significance_testing": "DEFERRED_TO_STAGE15",
+    "supporting": [
+      "Worst-Class F1",
+      "Accuracy",
+      "Balanced Accuracy",
+      "Per-Class Precision",
+      "Per-Class Recall",
+      "Per-Class F1",
+      "Confusion Matrix"
+    ]
+  },
+  "primary_models": [
+    {
+      "checkpoint_path": "D:\\MorphDG_Colon\\Results\\Stage5_Baselines\\Runs\\S5B4_RAW_EFFICIENTNETB0_SEED42\\Checkpoints\\best_model.pt",
+      "checkpoint_sha256": "c3b1129f863094f896cee761b65dfd2b64346bd6addf0d15bb40e961b826376e",
+      "input_branch": "RAW_RGB",
+      "method_index": 4,
+      "name": "EfficientNet-B0 ERM",
+      "role": "PRIMARY_MATCHED_COMPARATOR",
+      "seed": 42,
+      "source_validation_macro_f1": 0.998037321600664
+    },
+    {
+      "checkpoint_path": "D:\\MorphDG_Colon\\Results\\Stage8_MorphDG_Colon\\Runs\\S8C1_MORPHDG_COLON_SEED42\\Checkpoints\\best_model.pt",
+      "checkpoint_sha256": "c40fd8440fc496fe97c7f740c6f160d72e664e0dbcaccfd555720e8ebb168be5",
+      "input_branch": "RAW_RGB_PLUS_FROZEN_10D_MORPHOLOGY_PLUS_FROZEN_9D_CONTINUOUS_CONTEXT",
+      "method_index": 12,
+      "name": "MorphDG-Colon",
+      "role": "PRIMARY_PROPOSED_MODEL",
+      "seed": 42,
+      "source_validation_macro_f1": 0.997582429306318
+    }
+  ],
+  "repair_history": {
+    "discovery_cohort": 27,
+    "disjoint_confirmation": "PASSED",
+    "disjoint_confirmation_cohort": 900,
+    "extractor_freeze": "STAGE9_P2_R8_R1_PASSED",
+    "historical_extractor_search": "EXHAUSTED_WITHOUT_RECOVERY",
+    "operational_reconstruction": "RECONSTRUCTED_BY_INTERNAL_PARITY",
+    "original_stage9_p2": "FAILED_BEFORE_WRITES_DUE_TO_UNRESOLVED_HISTORICAL_EXTRACTOR"
+  },
+  "scientific_governance": {
+    "ensemble": false,
+    "external_checkpoint_selection": false,
+    "external_domain_refit": false,
+    "external_gradients": false,
+    "external_model_change": false,
+    "external_optimizer": false,
+    "external_preprocessing_fit": false,
+    "external_seed_selection": false,
+    "external_threshold_tuning": false,
+    "external_training": false,
+    "lc25000_access": false,
+    "post_external_retuning": false,
+    "result_driven_rerun": false,
+    "seed_probability_averaging": false,
+    "significance_testing": false,
+    "significance_testing_stage": "STAGE15",
+    "test_time_adaptation": false
+  },
+  "scientific_objective": "REPAIRED_STAGE9_P2_EXTERNAL_INPUT_BINDING_AND_EVALUATOR_FREEZE",
+  "secondary_scope": {
+    "MorphDG_seed_ensemble": false,
+    "probability_averaging": false,
+    "reason": "Primary external claim is prospectively matched MorphDG seed42 vs EfficientNet-B0 ERM seed42. Secondary methods require a separate method-specific external-input compatibility audit; Method5 specifically used the frozen V2.2 image branch internally.",
+    "status": "PREDECLARED_BUT_NOT_AUTHORIZED_IN_PRIMARY_P2_CONTRACT"
+  },
+  "stage": "STAGE 9-P2-R9",
+  "stage8_parent": {
+    "manifest_path": "D:\\MorphDG_Colon\\Results\\Stage8_MorphDG_Colon\\Formal_Internal_Test\\V1\\Stage8G_Scientific_Freeze\\stage8g_scientific_freeze_manifest_v2.json",
+    "manifest_sha256": "91aa64659f74e7581ac309c26bb1d5642124e6ab7c1c19631802268813e810b3",
+    "scientific_freeze_v2_path": "D:\\MorphDG_Colon\\Results\\Stage8_MorphDG_Colon\\Formal_Internal_Test\\V1\\Stage8G_Scientific_Freeze\\stage8g_scientific_freeze_v2.json",
+    "scientific_freeze_v2_sha256": "3e646b2e788b4e604dae1c16e70fbcd6937eefff532badb64ec9e390841e0009"
+  },
+  "stage9_p3_required_gates": {
+    "authenticate_frozen_domain_mapper": true,
+    "authenticate_input_binding": true,
+    "authenticate_reconstructed_extractor": true,
+    "authenticate_this_contract": true,
+    "authenticate_training_only_scaler": true,
+    "external_image_decoding_before_all_p3_gates_pass": false,
+    "external_inference_before_separate_authorization": false,
+    "reproduce_validation_9d_context_semantics": true,
+    "reproduce_validation_morphology_scaling_semantics": true,
+    "strict_checkpoint_load": true,
+    "strictly_reconstruct_method4": true,
+    "strictly_reconstruct_morphdg_seed42": true,
+    "synthetic_logits_shape": "[batch,9]"
+  },
+  "status": "FROZEN_PREINFERENCE_CONTRACT",
+  "version": "V1"
+}

@@ -1,0 +1,127 @@
+{
+    "architecture_frozen": false,
+    "domain_construction_performed": false,
+    "feature_reselection_performed": false,
+    "fit_rows": 70000,
+    "fit_scope": "70,000 source-training morphology rows only",
+    "frozen_feature_order": [
+        "Tissue_Occupancy",
+        "Edge_Density",
+        "Texture_Entropy",
+        "GLCM_Contrast",
+        "GLCM_Correlation",
+        "GLCM_Energy",
+        "GLCM_Homogeneity",
+        "GLCM_Dissimilarity",
+        "Brightness",
+        "Contrast"
+    ],
+    "name": "MorphDG-Colon Training-Only Hybrid Morphology Scaler",
+    "parameters": {
+        "Brightness": {
+            "center": 163.3667715968363,
+            "method": "StandardScaler",
+            "scale": 53.47534329777464,
+            "variance": 2859.6123408148514
+        },
+        "Contrast": {
+            "center": 33.836067326156126,
+            "method": "StandardScaler",
+            "scale": 16.79759675770785,
+            "variance": 282.15925683455725
+        },
+        "Edge_Density": {
+            "center": 0.18707455869624634,
+            "method": "StandardScaler",
+            "scale": 0.0982779749241034,
+            "variance": 0.009658560355182696
+        },
+        "GLCM_Contrast": {
+            "center": 496.147785036018,
+            "method": "StandardScaler",
+            "scale": 377.9449394888498,
+            "variance": 142842.37728523032
+        },
+        "GLCM_Correlation": {
+            "center": 0.7500035885712064,
+            "method": "StandardScaler",
+            "scale": 0.13412385441730204,
+            "variance": 0.017989208323753635
+        },
+        "GLCM_Dissimilarity": {
+            "center": 13.826802696430757,
+            "method": "StandardScaler",
+            "scale": 7.315962695502925,
+            "variance": 53.52331016199043
+        },
+        "GLCM_Energy": {
+            "center": 0.0178442573084635,
+            "method": "RobustScaler",
+            "quantile_range": [
+                25.0,
+                75.0
+            ],
+            "scale": 0.0365264526079932
+        },
+        "GLCM_Homogeneity": {
+            "center": 0.0913873057416726,
+            "method": "RobustScaler",
+            "quantile_range": [
+                25.0,
+                75.0
+            ],
+            "scale": 0.10615355387664646
+        },
+        "Texture_Entropy": {
+            "center": 6.89842415,
+            "method": "RobustScaler",
+            "quantile_range": [
+                25.0,
+                75.0
+            ],
+            "scale": 0.9839254750000004
+        },
+        "Tissue_Occupancy": {
+            "center": 0.7225337064959912,
+            "method": "StandardScaler",
+            "scale": 0.35318193273339765,
+            "variance": 0.12473747760929821
+        }
+    },
+    "pca_used": false,
+    "policy": {
+        "RobustScaler": "Used for frozen features flagged by Stage-7A2 as high-skew or outlier-heavy.",
+        "StandardScaler": "Used for frozen features not flagged by Stage-7A2 as high-skew or outlier-heavy.",
+        "class_labels_used": false,
+        "external_data_used": false,
+        "robust_quantile_range": [
+            25.0,
+            75.0
+        ],
+        "test_statistics_used_for_selection": false,
+        "validation_statistics_used_for_selection": false
+    },
+    "robust_features": [
+        "Texture_Entropy",
+        "GLCM_Energy",
+        "GLCM_Homogeneity"
+    ],
+    "runtime_formula": "scaled_value = (raw_value - center) / scale",
+    "source_feature_table_sha256": "6e20d41c314583a2bf3adf93460b355b36bc12fc75277fdcf041df042daf7ad0",
+    "source_stage7a2_report_sha256": "a8ff70215a030eb226505b0092001d8dbc70e9d268dbdaa617bb774159d0a856",
+    "stage": "7A-3",
+    "standard_features": [
+        "Tissue_Occupancy",
+        "Edge_Density",
+        "GLCM_Contrast",
+        "GLCM_Correlation",
+        "GLCM_Dissimilarity",
+        "Brightness",
+        "Contrast"
+    ],
+    "status": "FROZEN",
+    "test_fit_rows": 0,
+    "train_split_sha256": "5eb8e207f1b404ef4b401cc26cdd1eaeeed7a4f8508af4793fbd975d9495a5fc",
+    "training_started": false,
+    "validation_fit_rows": 0
+}
