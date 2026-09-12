@@ -1,0 +1,10 @@
+torch==2.5.1+cu121
+torchvision==0.20.1+cu121
+numpy==2.2.6
+Pillow==12.2.0
+scikit-learn==1.7.2
+pandas==2.3.3
+
+opencv-python
+scikit-image
+PyYAML
