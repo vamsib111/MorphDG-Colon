@@ -4,8 +4,10 @@ Frozen Scientific Release Integrity Record
 Repository:
 https://github.com/vamsib111/MorphDG-Colon
 
-Primary frozen model
---------------------
+
+============================================================
+PRIMARY FROZEN MODEL
+============================================================
 
 File:
 model/MorphDG_Colon_V2_Final_Seed42.pth
@@ -14,8 +16,9 @@ SHA256:
 0b5e864aeae12e4093ec9e7ed08411d597d933700396a13570aa3beaa1b46bcd
 
 
-Frozen model source
--------------------
+============================================================
+FROZEN MODEL SOURCES
+============================================================
 
 File:
 src/model/stage10d_morphdg_colon_v2_model.py
@@ -24,9 +27,6 @@ SHA256:
 54eb2f5c646fe46656a8eee1d4a217197c88f2199839357b7e0e5d191df0ae2a
 
 
-Inherited model source
-----------------------
-
 File:
 src/model/stage8b1_morphdg_colon_model.py
 
@@ -34,8 +34,9 @@ SHA256:
 68a5ce7b35d91b5632dc4b1c0b73624e1089f56ead2a6bd59aeb3ef61d0b93c8
 
 
-Frozen morphology extractor
----------------------------
+============================================================
+FROZEN MORPHOLOGY EXTRACTOR
+============================================================
 
 File:
 src/inference/stage9p2_reconstructed_morphology_extractor_v1.py
@@ -44,11 +45,52 @@ SHA256:
 c340fb15c135c9bb6ffe0776d50556a5688f14b3ae051ecfd8e13060eb04188e
 
 
-Release statement
------------------
+============================================================
+FROZEN INFERENCE RUNTIME RESOURCES
+============================================================
+
+File:
+src/inference/resources/
+stage9p2_reconstructed_morphology_extractor_spec_v1.json
+
+SHA256:
+5a56fab9a9b43a327ad355ac066d8347d3c1f71fb0720b7e2cb028d293d93b72
+
+
+File:
+src/inference/resources/
+stage7a3_training_only_hybrid_scaler.json
+
+SHA256:
+5c9397694b11218c11fd212a137fe5f35f63f4f7e585bdf9f885a92be8c18fbf
+
+
+File:
+src/inference/resources/
+stage7b3_final_label_free_domain_mapper.json
+
+SHA256:
+28164a117ea695b1d25a0683756a5682d544e91fa5d99c0a79ff1a647e2acca1
+
+
+File:
+src/inference/resources/
+stage9p2_crcval_external_evaluator_contract_v1.json
+
+SHA256:
+606563f6ad7234ecf3aeea15b30fc61ff8f3cdc143456c5d9e36a9c71c0fae45
+
+
+============================================================
+RELEASE INTEGRITY STATEMENT
+============================================================
 
 The primary model checkpoint was released without conversion,
 compression, reserialization, retraining, or scientific modification.
 
-The SHA256 values above correspond to the frozen MorphDG-Colon V2
-scientific artifacts used for manuscript preparation.
+The source files and runtime resources listed above correspond to the
+frozen MorphDG-Colon V2 scientific artifacts prepared for manuscript
+reproducibility.
+
+The SHA256 values in this file are provided so users can verify the
+integrity of the released artifacts.
