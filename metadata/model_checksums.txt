@@ -1,0 +1,54 @@
+MorphDG-Colon V2
+Frozen Scientific Release Integrity Record
+
+Repository:
+https://github.com/vamsib111/MorphDG-Colon
+
+Primary frozen model
+--------------------
+
+File:
+model/MorphDG_Colon_V2_Final_Seed42.pth
+
+SHA256:
+0b5e864aeae12e4093ec9e7ed08411d597d933700396a13570aa3beaa1b46bcd
+
+
+Frozen model source
+-------------------
+
+File:
+src/model/stage10d_morphdg_colon_v2_model.py
+
+SHA256:
+54eb2f5c646fe46656a8eee1d4a217197c88f2199839357b7e0e5d191df0ae2a
+
+
+Inherited model source
+----------------------
+
+File:
+src/model/stage8b1_morphdg_colon_model.py
+
+SHA256:
+68a5ce7b35d91b5632dc4b1c0b73624e1089f56ead2a6bd59aeb3ef61d0b93c8
+
+
+Frozen morphology extractor
+---------------------------
+
+File:
+src/inference/stage9p2_reconstructed_morphology_extractor_v1.py
+
+SHA256:
+c340fb15c135c9bb6ffe0776d50556a5688f14b3ae051ecfd8e13060eb04188e
+
+
+Release statement
+-----------------
+
+The primary model checkpoint was released without conversion,
+compression, reserialization, retraining, or scientific modification.
+
+The SHA256 values above correspond to the frozen MorphDG-Colon V2
+scientific artifacts used for manuscript preparation.
